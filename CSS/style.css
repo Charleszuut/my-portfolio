@@ -179,6 +179,7 @@ header img:hover {
 
 .text-container {
     flex: 0 1 34em;
+    justify-content: center;
 }
 
 h1 {
@@ -191,6 +192,7 @@ h1 {
     line-height: 1.6;
     color: var(--text-color);
     transition: all 0.3s ease;
+    text-align: justify;
 }
 
 .text-container:hover p {
