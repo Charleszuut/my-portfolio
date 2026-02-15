@@ -13,7 +13,8 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="https://www.youtube.com/@CharlesZu" target="_blank">YouTube</a></li>
                 <li><a href="#my-work">My Work</a></li>
-                <li><a href="https://www.facebook.com/CharlesZuutYT/" target="_blank">Facebook</a></li>
+                <li><a href="#project-gallery">Project Gallery</a></li>
+            <li><a href="https://www.facebook.com/CharlesZuutYT/" target="_blank">Facebook</a></li>
                 <li><a href="#contact-me">Contact</a></li>       
             </ul>
         </nav>
@@ -35,8 +36,6 @@
                 <p>Hi! I’m Charles, and I bring a mix of creativity, technical skills, and hands-on problem-solving to the table. Whether you need help with coding projects, video editing, or optimizing your tech devices, I can provide practical solutions and guidance. I also enjoy fitness and calisthenics, so I can offer advice on workouts, training routines, and staying motivated.</p>
                 <p> Outside of tech and fitness, I can assist with gaming strategies, music-related projects, or even book recommendations. Basically, if it involves coding, editing, tech repairs, or a creative approach to solving problems, I’m here to help!</p>
             </div>
-            <img width="350px" src="images/coding.png" alt="">
-            <img width="350px" src="images/vibecoding.png" alt="">
         </div>
     </section>
     <section id="my-work">
@@ -48,37 +47,253 @@
             <img style="grid-area: img-4" src="images/gym.jpg" alt="WIP">
             <img style="grid-area: img-5" src="images/repairing.jpg" alt="WIP">
         </div>
-        <div class="live-demo">
-            <h3>Featured Live Demo</h3>
-            <p>Preview a real deployed website directly inside my portfolio.</p>
-            <div class="live-demo-frame" aria-label="Live website preview">
-                <iframe
-                    src="http://csharpcharles.runasp.net/"
-                    title="Live Demo Preview"
-                    loading="lazy"
-                    referrerpolicy="no-referrer"
-                    allow="fullscreen"
-                ></iframe>
+        <div id="project-gallery" class="project-gallery">
+            <h3>Project Gallery</h3>
+            
+            <!-- CSharpCharles Project -->
+            <div class="project-card">
+                <div class="project-preview carousel">
+                    <div class="carousel-container">
+                        <img
+                            src="images/csharpcharleslog-in page.png"
+                            alt="CSharpCharles Login Page"
+                            class="carousel-slide active"
+                        >
+                        <img
+                            src="images/csharpcharlesdashboardpage.png"
+                            alt="CSharpCharles Dashboard"
+                            class="carousel-slide"
+                        >
+                        <img
+                            src="images/csharpcharlestodo.png"
+                            alt="CSharpCharles Todo Page"
+                            class="carousel-slide"
+                        >
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button>
+                        <div class="carousel-dots">
+                            <span class="dot active" onclick="goToSlide(0)"></span>
+                            <span class="dot" onclick="goToSlide(1)"></span>
+                            <span class="dot" onclick="goToSlide(2)"></span>
+                        </div>
+                        <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h4>CSharpCharles</h4>
+                    <p class="project-tech">ASP.NET Core | Identity | SQL Server</p>
+                    <p class="project-desc">Project management system with project tracking, budget & income management, project planning, and task assignment.</p>
+                    <button class="cta-button" onclick="openGallery()">View Gallery</button>
+                </div>
             </div>
-            <div class="live-demo-actions">
-                <a href="http://csharpcharles.runasp.net/" class="cta-button" target="_blank" rel="noopener noreferrer">Open Live Demo</a>
+            
+            <!-- Flutter Project Placeholder 1 -->
+            <div class="project-card">
+                <div class="project-preview placeholder">
+                    <div class="placeholder-content">
+                        <span class="placeholder-icon">📱</span>
+                        <p>Flutter Project Coming Soon</p>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h4>Flutter App</h4>
+                    <p class="project-tech">Flutter | Dart | Firebase</p>
+                    <p class="project-desc">Cross-platform mobile application (in development).</p>
+                    <span class="cta-button disabled">Coming Soon</span>
+                </div>
             </div>
-            <p class="live-demo-note">If the preview is blank, that site may block being embedded. Use “Open Live Demo” instead.</p>
+            
+            <!-- Flutter Project Placeholder 2 -->
+            <div class="project-card">
+                <div class="project-preview placeholder">
+                    <div class="placeholder-content">
+                        <span class="placeholder-icon">🚀</span>
+                        <p>Flutter Project Coming Soon</p>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h4>Flutter App 2</h4>
+                    <p class="project-tech">Flutter | Dart | REST API</p>
+                    <p class="project-desc">Another exciting Flutter project in the works.</p>
+                    <span class="cta-button disabled">Coming Soon</span>
+                </div>
+            </div>
+            
+            <!-- Future Project Placeholder -->
+            <div class="project-card">
+                <div class="project-preview placeholder">
+                    <div class="placeholder-content">
+                        <span class="placeholder-icon">💡</span>
+                        <p>Future Project</p>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h4>Future Project</h4>
+                    <p class="project-tech">TBD</p>
+                    <p class="project-desc">More projects coming soon!</p>
+                    <span class="cta-button disabled">Stay Tuned</span>
+                </div>
+            </div>
         </div>
         <a href="" class="cta-button">See More</a>
     </section>
-        <section id="contact-me">
-            <h2>Contacts</h2>
+    <section id="contact-me">
+        <h2>Contacts</h2>
 
-            <ul class="contact-list">
-                <li>📞 Phone 1: 09954207108 (Globe)</li>
-                <li>📞 Phone 2: 09911387246 (DITO)</li>
-                <li>📧 Email: <a href="mailto:harlesoaquin@gmail.com">harlesoaquin@gmail.com</a></li>
-                <li>📍 Address: PV 1 BLK 6 LOT 23, Elenita Heights, Catalunan Grande, Davao City, Davao Del Sur</li>
-            </ul>
-        </section>
+        <ul class="contact-list">
+            <li>📞 Phone 1: 09954207108 (Globe)</li>
+            <li>📞 Phone 2: 09911387246 (DITO)</li>
+            <li>📧 Email: <a href="mailto:harlesoaquin@gmail.com">harlesoaquin@gmail.com</a></li>
+            <li>📍 Address: PV 1 BLK 6 LOT 23, Elenita Heights, Catalunan Grande, Davao City, Davao Del Sur</li>
+        </ul>
+    </section>
     <footer>
         <p>&copy; 2025 Charles. All rights reserved.</p>
     </footer>
+
+    <div id="galleryModal" class="gallery-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeGallery()">&times;</button>
+            <h3>CSharpCharles - Project Management System</h3>
+            
+            <div class="gallery-view">
+                <button class="gallery-nav prev" onclick="changeGalleryImage(-1)">❮</button>
+                
+                <div class="gallery-image-container">
+                    <img id="galleryImage" src="images/csharpcharleslog-in page.png" alt="CSharpCharles">
+                    <p id="galleryDescription" class="gallery-description">Login page with secure authentication system using ASP.NET Core Identity.</p>
+                </div>
+                
+                <button class="gallery-nav next" onclick="changeGalleryImage(1)">❯</button>
+            </div>
+            
+            <div class="gallery-dots">
+                <span class="gallery-dot active" onclick="setGalleryImage(0)"></span>
+                <span class="gallery-dot" onclick="setGalleryImage(1)"></span>
+                <span class="gallery-dot" onclick="setGalleryImage(2)"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                dots[i].classList.remove('active');
+            });
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+
+        function moveCarousel(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            showSlide(currentSlide);
+        }
+
+        // Auto-advance carousel every 5 seconds
+        setInterval(() => {
+            moveCarousel(1);
+        }, 5000);
+
+        // Gallery Modal Functions
+        const galleryImages = [
+            {
+                src: 'images/csharpcharleslog-in page.png',
+                description: 'Login page with secure authentication system using ASP.NET Core Identity. Features user registration, password validation, and role-based access control.'
+            },
+            {
+                src: 'images/csharpcharlesdashboardpage.png',
+                description: 'Dashboard overview showing project tracking, task status, budget overview, and income reports. Real-time data visualization with interactive charts.'
+            },
+            {
+                src: 'images/csharpcharlestodo.png',
+                description: 'Task management interface for project planning and task assignment. Create, assign, and track tasks with deadlines and priority levels.'
+            }
+        ];
+
+        let currentGalleryIndex = 0;
+
+        function openGallery() {
+            document.getElementById('galleryModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGallery() {
+            document.getElementById('galleryModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function animateGalleryImage(direction) {
+            const img = document.getElementById('galleryImage');
+            const desc = document.getElementById('galleryDescription');
+            
+            // Apply exit animation
+            img.classList.add('animating-out');
+            desc.style.opacity = '0';
+            desc.style.transition = 'opacity 0.2s ease';
+            
+            setTimeout(() => {
+                // Update content
+                img.src = galleryImages[currentGalleryIndex].src;
+                desc.textContent = galleryImages[currentGalleryIndex].description;
+                
+                // Remove exit animation and apply entry animation
+                img.classList.remove('animating-out');
+                img.classList.add('fade-animation');
+                
+                // Fade in description
+                desc.style.opacity = '1';
+                
+                // Clean up animation class
+                setTimeout(() => {
+                    img.classList.remove('fade-animation');
+                }, 400);
+            }, 200);
+            
+            // Update dots
+            document.querySelectorAll('.gallery-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentGalleryIndex);
+            });
+        }
+
+        function changeGalleryImage(direction) {
+            currentGalleryIndex = (currentGalleryIndex + direction + galleryImages.length) % galleryImages.length;
+            animateGalleryImage(direction);
+        }
+
+        function setGalleryImage(index) {
+            if (index === currentGalleryIndex) return;
+            const direction = index > currentGalleryIndex ? 1 : -1;
+            currentGalleryIndex = index;
+            animateGalleryImage(direction);
+        }
+
+        // Close modal on outside click
+        document.getElementById('galleryModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeGallery();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (document.getElementById('galleryModal').style.display === 'flex') {
+                if (e.key === 'Escape') closeGallery();
+                if (e.key === 'ArrowLeft') changeGalleryImage(-1);
+                if (e.key === 'ArrowRight') changeGalleryImage(1);
+            }
+        });
+    </script>
 </body>
 </html>
