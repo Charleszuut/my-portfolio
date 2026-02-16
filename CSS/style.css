@@ -279,6 +279,11 @@ section#my-work {
     background-color: var(--color-3);
 }
 
+#how-can-i-help p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
  .live-demo {
      margin: 2.5em auto 2em auto;
      width: 100%;
@@ -431,6 +436,11 @@ footer p {
     .text-container p,
     section p {
         text-align: left;
+    }
+
+    #how-can-i-help p {
+        text-align: justify;
+        text-justify: inter-word;
     }
 
     .grid-container {
