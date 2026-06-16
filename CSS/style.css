@@ -403,6 +403,35 @@ section#my-work {
     box-shadow: var(--glow-primary);
 }
 
+.work-tile {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+}
+
+.work-tile figcaption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.65em 0.8em;
+    font-size: 0.9rem;
+    text-transform: capitalize;
+    color: #ffffff;
+    background: linear-gradient(to top, rgba(4, 10, 22, 0.88), rgba(4, 10, 22, 0));
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+}
+
+.work-tile:hover figcaption,
+.work-tile:focus-within figcaption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 footer p {
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--tertiary-color));
     -webkit-background-clip: text;
