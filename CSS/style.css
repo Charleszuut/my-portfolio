@@ -1053,6 +1053,7 @@ footer p {
 
 .cert-viewport {
     width: min(580px, 68vw);
+    aspect-ratio: 580 / 448;
     overflow: hidden;
     border-radius: var(--border-radius);
     cursor: zoom-in;
@@ -1064,11 +1065,13 @@ footer p {
 .cert-strip {
     display: flex;
     width: 500%;
+    height: 100%;
     will-change: transform;
 }
 
 .cert-slide {
     width: 20%;
+    height: 100%;
     flex-shrink: 0;
     position: relative;
     line-height: 0;
@@ -1076,9 +1079,11 @@ footer p {
 
 .cert-slide img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
     border-radius: var(--border-radius);
+    object-fit: contain;
+    object-position: center;
 }
 
 .cert-title-display {

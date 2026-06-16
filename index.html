@@ -270,6 +270,10 @@
             moveCarousel(1);
         }, 5000);
 
+        function assetUrl(path) {
+            return new URL(path, document.baseURI).href;
+        }
+
         // Gallery Modal Functions
         const galleryImages = [
             {
@@ -309,7 +313,7 @@
             
             setTimeout(() => {
                 // Update content
-                img.src = galleryImages[currentGalleryIndex].src;
+                img.src = assetUrl(galleryImages[currentGalleryIndex].src);
                 desc.textContent = galleryImages[currentGalleryIndex].description;
                 
                 // Remove exit animation and apply entry animation
@@ -374,7 +378,7 @@
             const strip = document.getElementById('certStrip');
             strip.querySelectorAll('.cert-slide').forEach((slide, i) => {
                 const data = certImages[CERT_STRIP_ORDER[i]];
-                slide.querySelector('img').src = data.src;
+                slide.querySelector('img').src = assetUrl(data.src);
                 slide.querySelector('img').alt = data.alt;
             });
             strip.style.transition = 'none';
