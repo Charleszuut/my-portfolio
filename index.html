@@ -41,6 +41,30 @@
             </div>
         </div>
     </section>
+    <section id="certificates">
+        <h2>Certificates</h2>
+        <div class="certificates-container">
+            <button class="cert-carousel-btn cert-prev" onclick="rotateCert(-1)">&#8249;</button>
+            <div class="cert-viewport" onclick="openCertModal()">
+                <div class="cert-strip" id="certStrip">
+                    <div class="cert-slide"><img src="" alt=""></div>
+                    <div class="cert-slide"><img src="" alt=""></div>
+                    <div class="cert-slide"><img src="" alt=""></div>
+                    <div class="cert-slide"><img src="" alt=""></div>
+                    <div class="cert-slide"><img src="" alt=""></div>
+                </div>
+            </div>
+            <button class="cert-carousel-btn cert-next" onclick="rotateCert(1)">&#8250;</button>
+        </div>
+        <p id="certTitle" class="cert-title-display"></p>
+        <!-- Certificate lightbox modal -->
+        <div id="certModal" class="cert-modal" onclick="closeCertModal()">
+            <div class="cert-modal-content" onclick="event.stopPropagation()">
+                <button class="cert-modal-close" onclick="closeCertModal()">&#x2715;</button>
+                <img id="certModalImg" src="" alt="Certificate">
+            </div>
+        </div>
+    </section>
     <section id="my-work">
         <h2>My Work</h2>
         <div class="grid-container">
@@ -332,6 +356,87 @@
                 if (e.key === 'Escape') closeGallery();
                 if (e.key === 'ArrowLeft') changeGalleryImage(-1);
                 if (e.key === 'ArrowRight') changeGalleryImage(1);
+            }
+        });
+
+        // Certificate Carousel — strip slider with infinite-loop clones
+        // Strip order: [clone-img2, img0, img1, img2, clone-img0]
+        const certImages = [
+            { src: 'images/cert/Database.jpg', alt: 'Database Certificate',   title: 'Database' },
+            { src: 'images/cert/HTML&CSS.jpg', alt: 'HTML & CSS Certificate', title: 'HTML & CSS' },
+            { src: 'images/cert/Java.png',     alt: 'Java Certificate',       title: 'Java' }
+        ];
+        const CERT_STRIP_ORDER = [2, 0, 1, 2, 0];
+        let certPos = 1;
+        let certAnimating = false;
+
+        (function initCertStrip() {
+            const strip = document.getElementById('certStrip');
+            strip.querySelectorAll('.cert-slide').forEach((slide, i) => {
+                const data = certImages[CERT_STRIP_ORDER[i]];
+                slide.querySelector('img').src = data.src;
+                slide.querySelector('img').alt = data.alt;
+            });
+            strip.style.transition = 'none';
+            strip.style.transform = `translateX(-${certPos * 20}%)`;
+            document.getElementById('certTitle').textContent = certImages[CERT_STRIP_ORDER[certPos]].title;
+        })();
+
+        function rotateCert(dir) {
+            if (certAnimating) return;
+            certAnimating = true;
+
+            const strip = document.getElementById('certStrip');
+            const title = document.getElementById('certTitle');
+            const nextPos = certPos + dir;
+
+            // Fade title out immediately
+            title.classList.add('cert-title-hidden');
+
+            strip.style.transition = 'transform 0.48s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            strip.style.transform = `translateX(-${nextPos * 20}%)`;
+
+            strip.addEventListener('transitionend', function onEnd(e) {
+                if (e.propertyName !== 'transform') return;
+                strip.removeEventListener('transitionend', onEnd);
+                certPos = nextPos;
+                // Silently teleport from clone to real equivalent
+                if (certPos === 0) {
+                    certPos = 3;
+                    strip.style.transition = 'none';
+                    strip.style.transform = `translateX(-${certPos * 20}%)`;
+                    strip.offsetHeight;
+                } else if (certPos === 4) {
+                    certPos = 1;
+                    strip.style.transition = 'none';
+                    strip.style.transform = `translateX(-${certPos * 20}%)`;
+                    strip.offsetHeight;
+                }
+                // Update and fade title back in
+                title.textContent = certImages[CERT_STRIP_ORDER[certPos]].title;
+                title.classList.remove('cert-title-hidden');
+                certAnimating = false;
+            });
+        }
+
+        function openCertModal() {
+            const strip = document.getElementById('certStrip');
+            const img = strip.querySelectorAll('.cert-slide img')[certPos];
+            const modal = document.getElementById('certModal');
+            document.getElementById('certModalImg').src = img.src;
+            document.getElementById('certModalImg').alt = img.alt;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCertModal() {
+            document.getElementById('certModal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (document.getElementById('certModal').style.display === 'flex') {
+                if (e.key === 'Escape') closeCertModal();
             }
         });
     </script>
